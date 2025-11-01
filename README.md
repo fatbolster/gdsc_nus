@@ -118,4 +118,3 @@ The `dist/` folder is static. You can deploy it to Netlify, Vercel, GitHub Pages
 
 ---
 
-Want me to include a GitHub Actions workflow to build and deploy (e.g., to GitHub Pages or Netlify)?
