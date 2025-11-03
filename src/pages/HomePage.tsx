@@ -43,7 +43,7 @@ function Projects() {
 
   return (
     <section id="projects" className="mx-auto max-w-6xl px-4 py-10">
-      <h2 className="text-2xl font-semibold">Our Projects</h2>
+      <h2 className="text-2xl font-semibold text-center">Our Projects</h2>
       <div className="mt-5 grid gap-6 md:grid-cols-3">
         {projects.map((project, i) => (
           <article
@@ -102,8 +102,10 @@ function Timeline() {
   ];
   return (
     <section className="mx-auto max-w-6xl px-4 py-10">
-      <h2 className="text-2xl font-semibold">Partner With Us: Our Timeline</h2>
-      <p className="mt-2 text-slate-600">
+      <h2 className="text-2xl font-semibold text-center">
+        Partner With Us: Our Timeline
+      </h2>
+      <p className="mt-2 text-slate-600 text-center max-w-2xl mx-auto">
         Here's how we work with our partners from idea to launch.
       </p>
 
