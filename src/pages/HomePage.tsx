@@ -1,4 +1,7 @@
 import React, { useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
+import SiteHeader from "../components/SiteHeader";
+import Footer from "../components/Footer";
 
 export default function HomePage() {
   return (
@@ -19,285 +22,11 @@ export default function HomePage() {
   );
 }
 
-function Projects() {
-  const projects = [
-    {
-      title: "Campus Navigator App",
-      description:
-        "An intuitive map app to help new students navigate the NUS campus with ease.",
-      image: "/project1.png",
-    },
-    {
-      title: "Sustainability Tracker",
-      description:
-        "A tool used to promote sustainable practices among students on campus.",
-      image: "/project2.png",
-    },
-    {
-      title: "AI-Powered Tutor",
-      description:
-        "A personal learning assistant for students, powered by Google's AI technologies.",
-      image: "/project3.png",
-    },
-  ];
-
-  return (
-    <section id="projects" className="mx-auto max-w-6xl px-4 py-10">
-      <h2 className="text-2xl font-semibold text-center">Our Projects</h2>
-      <div className="mt-5 grid gap-6 md:grid-cols-3">
-        {projects.map((project, i) => (
-          <article
-            key={i}
-            className="group overflow-hidden rounded-2xl border border-slate-200 bg-slate-50"
-          >
-            <div className="aspect-video overflow-hidden">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-            <div className="p-5">
-              <h3 className="font-semibold">{project.title}</h3>
-              <p className="mt-2 text-sm text-slate-600">
-                {project.description}
-              </p>
-              <a
-                href="#details"
-                className="mt-3 inline-flex items-center text-sm font-medium text-blue-500 hover:text-blue-400"
-              >
-                View Details →
-              </a>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Timeline() {
-  const steps = [
-    {
-      title: "Initial Consultation",
-      description: "We start by understanding your needs and goals.",
-      icon: "📋",
-    },
-    {
-      title: "Project Scoping & Proposal",
-      description:
-        "We define the project scope and deliver a detailed proposal.",
-      icon: "📝",
-    },
-    {
-      title: "Development Sprints",
-      description: "Our team works in agile sprints to build and iterate.",
-      icon: "💻",
-    },
-    {
-      title: "Final Showcase & Handover",
-      description: "We present the final project and hand over all assets.",
-      icon: "🎉",
-    },
-  ];
-  return (
-    <section className="mx-auto max-w-6xl px-4 py-10">
-      <h2 className="text-2xl font-semibold text-center">
-        Partner With Us: Our Timeline
-      </h2>
-      <p className="mt-2 text-slate-600 text-center max-w-2xl mx-auto">
-        Here's how we work with our partners from idea to launch.
-      </p>
-
-      {/* Timeline container */}
-      <div className="relative mt-8">
-        {/* Center vertical line (hidden on small screens) */}
-        <div className="hidden md:block absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-slate-200" />
-
-        <div className="space-y-12">
-          {steps.map((step, i) => {
-            const isLeft = i % 2 === 0;
-            return (
-              <div
-                key={i}
-                className="flex flex-col items-start md:flex-row md:items-center"
-              >
-                {/* Left side card (or spacer on the right) */}
-                <div
-                  className={`md:w-1/2 md:px-8 ${
-                    isLeft ? "md:pr-8 md:flex md:justify-end" : "md:pl-8"
-                  } w-full`}
-                >
-                  {isLeft && (
-                    <div className="max-w-md rounded-2xl border border-slate-200 bg-white p-5 shadow">
-                      <h3 className="font-semibold text-slate-800">
-                        {step.title}
-                      </h3>
-                      <p className="mt-1 text-sm text-slate-600">
-                        {step.description}
-                      </p>
-                    </div>
-                  )}
-                </div>
-
-                {/* Center marker */}
-                <div className="relative flex items-center justify-center md:mx-0 mx-auto z-10">
-                  <div className="h-0 w-0 md:h-auto md:w-auto" />
-                  <div
-                    className={`flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white shadow`}
-                  >
-                    <span className="text-base">{step.icon}</span>
-                  </div>
-                </div>
-
-                {/* Right side card (or spacer on the left) */}
-                <div
-                  className={`md:w-1/2 md:px-8 ${
-                    !isLeft ? "md:pl-8 md:flex md:justify-start" : "md:pr-8"
-                  } w-full mt-4 md:mt-0`}
-                >
-                  {!isLeft && (
-                    <div className="max-w-md rounded-2xl border border-slate-200 bg-white p-5 shadow">
-                      <h3 className="font-semibold text-slate-800">
-                        {step.title}
-                      </h3>
-                      <p className="mt-1 text-sm text-slate-600">
-                        {step.description}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function SiteHeader() {
-  return (
-    <header className="sticky top-0 z-50 bg-slate-100 border-b border-slate-200">
-      <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3">
-        <a href="#home" className="inline-flex items-center gap-2">
-          <img
-            src="/GDSC_Logo.png"
-            alt="GDSC NUS Logo"
-            className="h-8 w-auto"
-          />
-        </a>
-        <div className="hidden gap-6 text-sm text-slate-700 md:flex">
-          <a className="hover:text-slate-900" href="#about">
-            About
-          </a>
-          <a className="hover:text-slate-900" href="#community">
-            Events
-          </a>
-          <a className="hover:text-slate-900" href="#events">
-            Meet The Team
-          </a>
-          <a className="hover:text-slate-900" href="#projects">
-            Projects
-          </a>
-        </div>
-        <a
-          href="#join"
-          className="inline-flex items-center rounded-full bg-blue-500 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-600"
-        >
-          Join Upcoming Events
-        </a>
-      </nav>
-    </header>
-  );
-}
-
-function Testimonials() {
-  const items = [
-    {
-      quote:
-        "GDSC NUS has been an incredible place to learn and connect. The workshops are top-notch and the community is very supportive.",
-      name: "Sarah L.",
-      role: "Computer Science, Year 2",
-      avatar: "/avatars/sarah.jpg",
-    },
-    {
-      quote:
-        "I've gained so many practical skills through the projects here. It's a great bridge between my coursework and the real world.",
-      name: "Michael C.",
-      role: "Information Systems, Year 3",
-      avatar: "/avatars/michael.jpg",
-    },
-    {
-      quote:
-        "The networking opportunities are fantastic. I've met people from Google and other amazing tech companies through GDSC events.",
-      name: "Emily T.",
-      role: "Business Analytics, Year 4",
-      avatar: "/avatars/emily.jpg",
-    },
-  ];
-
-  return (
-    <section className="mx-auto max-w-6xl px-4 py-10">
-      <h2 className="text-2xl font-semibold text-center">
-        What Our Members Say
-      </h2>
-      <div className="mt-8 grid gap-6 md:grid-cols-3">
-        {items.map((it, i) => (
-          <blockquote
-            key={i}
-            className="rounded-2xl border border-slate-100 bg-slate-50 p-6 text-slate-700 shadow-sm"
-          >
-            <p className="text-sm italic text-slate-600">“{it.quote}”</p>
-            <div className="mt-4 flex items-center gap-3">
-              <img
-                src={it.avatar}
-                alt={it.name}
-                className="h-10 w-10 rounded-full object-cover"
-              />
-              <div>
-                <div className="font-semibold text-slate-800">{it.name}</div>
-                <div className="text-xs text-slate-500">{it.role}</div>
-              </div>
-            </div>
-          </blockquote>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Partners() {
-  const logos = [
-    { src: "/volunteer_switchboard.png", alt: "Volunteer Switchboard" },
-    { src: "/siloamxperience.png", alt: "SiloamXperience" },
-    { src: "/itsraining.png", alt: "ItsRainingRaincoats" },
-    { src: "/caringforlife.png", alt: "Caring for Life" },
-    { src: "/actionforsingapore.png", alt: "Action for Singapore Dogs" },
-  ];
-
-  return (
-    <section className="mx-auto max-w-6xl px-4 py-10 bg-slate-50">
-      <h2 className="text-2xl font-semibold text-center">Our Partners</h2>
-      <div className="mt-8 flex items-center justify-between gap-6 overflow-x-auto px-4">
-        {logos.map((l, i) => (
-          <div
-            key={i}
-            className="flex shrink-0 items-center justify-center px-4"
-          >
-            <img src={l.src} alt={l.alt} className="h-16 object-contain" />
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
+/* --------------------------- HERO --------------------------- */
 function Hero() {
   return (
     <section id="home" className="mx-auto max-w-6xl px-4 py-16 md:py-24">
       <div className="grid grid-cols-1 gap-12 md:grid-cols-2 items-center">
-        {/* Left side - Text content */}
         <div>
           <h1 className="text-5xl tracking-tight md:text-7xl lg:text-5xl">
             <span className="bg-gradient-to-r from-blue-500 via-emerald-500 to-amber-400 bg-clip-text text-transparent">
@@ -310,16 +39,15 @@ function Hero() {
             passionate community of developers.
           </p>
           <div className="mt-6">
-            <a
-              href="#events"
+            <NavLink
+              to="/events"
               className="inline-flex items-center rounded-full bg-blue-500 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-600"
             >
               Join Upcoming Events
-            </a>
+            </NavLink>
           </div>
         </div>
 
-        {/* Right side - Team photo */}
         <div className="flex justify-center md:justify-end">
           <div className="overflow-hidden rounded-3xl w-full max-w-md">
             <img
@@ -334,6 +62,7 @@ function Hero() {
   );
 }
 
+/* --------------------------- ABOUT --------------------------- */
 function About() {
   return (
     <section id="about" className="mx-auto max-w-6xl px-4 py-16">
@@ -414,36 +143,23 @@ function About() {
 
       {/* Left side text + Right side FAQ */}
       <div className="grid gap-8 md:grid-cols-[1fr_1.8fr] items-start">
-        {/* Left side */}
         <div>
-          <h3
-            className="text-4xl text-slate-900 mb-3 tracking-tight"
-            style={{
-              fontFamily:
-                '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif',
-            }}
-          >
+          <h3 className="text-4xl text-slate-900 mb-3 tracking-tight">
             Developer Student Club
           </h3>
-          <div className="w-96 h-1.5 bg-slate-900 mb-6"></div>
-          <p
-            className="text-2xl text-slate-900 tracking-[0.15em]"
-            style={{
-              fontFamily:
-                '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif',
-            }}
-          >
+          <div className="w-96 h-1.5 bg-slate-900 mb-6" />
+          <p className="text-2xl text-slate-900 tracking-[0.15em]">
             #TECHFORGOOD
           </p>
         </div>
 
-        {/* Right side - FAQ */}
         <FAQ />
       </div>
     </section>
   );
 }
 
+/* --------------------------- FAQ / ACCORDION --------------------------- */
 function FAQ() {
   const items = [
     {
@@ -503,8 +219,9 @@ function Accordion({
       </button>
 
       <div
-        className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out
-            ${open ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}`}
+        className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out ${
+          open ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
         <div className="bg-white px-6 py-5 border-x border-b border-slate-200">
           {children}
@@ -514,6 +231,7 @@ function Accordion({
   );
 }
 
+/* --------------------------- COMMUNITY --------------------------- */
 function Community() {
   const scrollerRef = useRef<HTMLDivElement>(null);
 
@@ -536,7 +254,7 @@ function Community() {
     const el = scrollerRef.current;
     if (!el) return;
     const card = el.querySelector<HTMLDivElement>("[data-card]");
-    const step = card ? card.clientWidth + 24 /* gap-6 */ : el.clientWidth / 3;
+    const step = card ? card.clientWidth + 24 : el.clientWidth / 3;
     el.scrollBy({ left: dir === "left" ? -step : step, behavior: "smooth" });
   };
 
@@ -547,7 +265,6 @@ function Community() {
       </h2>
 
       <div className="relative mt-8">
-        {/* arrows */}
         <button
           aria-label="Previous"
           onClick={() => scrollByOne("left")}
@@ -563,33 +280,18 @@ function Community() {
           →
         </button>
 
-        {/* scroller */}
         <div
           ref={scrollerRef}
-          className="
-              scroll-smooth overflow-x-auto px-12
-              [scrollbar-width:none] [-ms-overflow-style:none]
-              [&::-webkit-scrollbar]:hidden
-            "
+          className="scroll-smooth overflow-x-auto px-12 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         >
-          <div
-            className="
-                grid grid-flow-col gap-6 snap-x snap-mandatory
-                auto-cols-[85%]                           /* mobile: 1 card-ish */
-                md:[grid-auto-columns:calc((100%-24px*2)/3)] /* md+: exactly 3 visible (gap-6 = 24px) */
-              "
-          >
+          <div className="grid grid-flow-col gap-6 snap-x snap-mandatory auto-cols-[85%] md:[grid-auto-columns:calc((100%-24px*2)/3)]">
             {items.map((it) => (
               <div
                 key={it.id}
                 data-card
                 className="snap-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md"
               >
-                <img
-                  src={it.src}
-                  alt="Community"
-                  className="h-64 w-full object-cover"
-                />
+                <img src={it.src} alt="Community" className="h-64 w-full object-cover" />
               </div>
             ))}
           </div>
@@ -599,6 +301,7 @@ function Community() {
   );
 }
 
+/* --------------------------- EVENTS --------------------------- */
 function Events() {
   const upcoming = [
     {
@@ -681,70 +384,234 @@ function Events() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="mx-auto max-w-6xl border-t border-slate-200 px-4 py-8">
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div className="inline-flex items-center gap-3">
-          <img src="/GDSC_Logo.png" alt="GDSC NUS Logo" className="h-6 w-auto" />
-          <div
-            className="font-inter font-normal"
-            style={{ color: "var(--color-grey-2570, #3C4043B2)" }}
-          >
-            © 2025 GDSC NUS. All rights reserved.
-          </div>
-        </div>
+/* --------------------------- PROJECTS --------------------------- */
+function Projects() {
+  const projects = [
+    {
+      title: "Campus Navigator App",
+      description:
+        "An intuitive map app to help new students navigate the NUS campus with ease.",
+      image: "/project1.png",
+    },
+    {
+      title: "Sustainability Tracker",
+      description:
+        "A tool used to promote sustainable practices among students on campus.",
+      image: "/project2.png",
+    },
+    {
+      title: "AI-Powered Tutor",
+      description:
+        "A personal learning assistant for students, powered by Google's AI technologies.",
+      image: "/project3.png",
+    },
+  ];
 
-        {/* Social icons */}
-        <div className="flex items-center gap-6">
-          <a
-            href="https://www.instagram.com/yourpage"
-            target="_blank"
-            rel="noopener noreferrer"
+  return (
+    <section id="projects" className="mx-auto max-w-6xl px-4 py-10">
+      <h2 className="text-2xl font-semibold text-center">Our Projects</h2>
+      <div className="mt-5 grid gap-6 md:grid-cols-3">
+        {projects.map((project, i) => (
+          <article
+            key={i}
+            className="group overflow-hidden rounded-2xl border border-slate-200 bg-slate-50"
           >
-            <img
-              src="/Instagram.svg"
-              alt="Instagram"
-              className="h-6 w-6 opacity-70 hover:opacity-100 transition"
-            />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/yourpage"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="/Link.svg"
-              alt="LinkedIn"
-              className="h-6 w-6 opacity-70 hover:opacity-100 transition"
-            />
-          </a>
-          <a href="mailto:your@email.com">
-            <img
-              src="/Email.svg"
-              alt="Email"
-              className="h-6 w-6 opacity-70 hover:opacity-100 transition"
-            />
-          </a>
-        </div>
+            <div className="aspect-video overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <div className="p-5">
+              <h3 className="font-semibold">{project.title}</h3>
+              <p className="mt-2 text-sm text-slate-600">
+                {project.description}
+              </p>
+              <a
+                href="#details"
+                className="mt-3 inline-flex items-center text-sm font-medium text-blue-500 hover:text-blue-400"
+              >
+                View Details →
+              </a>
+            </div>
+          </article>
+        ))}
       </div>
-    </footer>
+    </section>
   );
 }
 
-function GdscDots() {
-  const Dot = ({ c }: { c: string }) => (
-    <span
-      className="inline-block h-2.5 w-2.5 rounded-sm"
-      style={{ background: c }}
-    />
-  );
+/* --------------------------- TIMELINE --------------------------- */
+function Timeline() {
+  const steps = [
+    {
+      title: "Initial Consultation",
+      description: "We start by understanding your needs and goals.",
+      icon: "📋",
+    },
+    {
+      title: "Project Scoping & Proposal",
+      description:
+        "We define the project scope and deliver a detailed proposal.",
+      icon: "📝",
+    },
+    {
+      title: "Development Sprints",
+      description: "Our team works in agile sprints to build and iterate.",
+      icon: "💻",
+    },
+    {
+      title: "Final Showcase & Handover",
+      description: "We present the final project and hand over all assets.",
+      icon: "🎉",
+    },
+  ];
+
   return (
-    <span className="inline-flex items-center gap-1.5">
-      <Dot c="#34a853" />
-      <Dot c="#4285f4" />
-      <Dot c="#fbbc05" />
-      <Dot c="#ea4335" />
-    </span>
+    <section className="mx-auto max-w-6xl px-4 py-10">
+      <h2 className="text-2xl font-semibold text-center">
+        Partner With Us: Our Timeline
+      </h2>
+      <p className="mt-2 text-slate-600 text-center max-w-2xl mx-auto">
+        Here's how we work with our partners from idea to launch.
+      </p>
+
+      <div className="relative mt-8">
+        <div className="hidden md:block absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-slate-200" />
+        <div className="space-y-12">
+          {steps.map((step, i) => {
+            const isLeft = i % 2 === 0;
+            return (
+              <div
+                key={i}
+                className="flex flex-col items-start md:flex-row md:items-center"
+              >
+                <div
+                  className={`md:w-1/2 md:px-8 ${
+                    isLeft ? "md:pr-8 md:flex md:justify-end" : "md:pl-8"
+                  } w-full`}
+                >
+                  {isLeft && (
+                    <div className="max-w-md rounded-2xl border border-slate-200 bg-white p-5 shadow">
+                      <h3 className="font-semibold text-slate-800">
+                        {step.title}
+                      </h3>
+                      <p className="mt-1 text-sm text-slate-600">
+                        {step.description}
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                <div className="relative flex items-center justify-center md:mx-0 mx-auto z-10">
+                  <div className="h-0 w-0 md:h-auto md:w-auto" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white shadow">
+                    <span className="text-base">{step.icon}</span>
+                  </div>
+                </div>
+
+                <div
+                  className={`md:w-1/2 md:px-8 ${
+                    !isLeft ? "md:pl-8 md:flex md:justify-start" : "md:pr-8"
+                  } w-full mt-4 md:mt-0`}
+                >
+                  {!isLeft && (
+                    <div className="max-w-md rounded-2xl border border-slate-200 bg-white p-5 shadow">
+                      <h3 className="font-semibold text-slate-800">
+                        {step.title}
+                      </h3>
+                      <p className="mt-1 text-sm text-slate-600">
+                        {step.description}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------- TESTIMONIALS --------------------------- */
+function Testimonials() {
+  const items = [
+    {
+      quote:
+        "GDSC NUS has been an incredible place to learn and connect. The workshops are top-notch and the community is very supportive.",
+      name: "Sarah L.",
+      role: "Computer Science, Year 2",
+      avatar: "/avatars/sarah.jpg",
+    },
+    {
+      quote:
+        "I've gained so many practical skills through the projects here. It's a great bridge between my coursework and the real world.",
+      name: "Michael C.",
+      role: "Information Systems, Year 3",
+      avatar: "/avatars/michael.jpg",
+    },
+    {
+      quote:
+        "The networking opportunities are fantastic. I've met people from Google and other amazing tech companies through GDSC events.",
+      name: "Emily T.",
+      role: "Business Analytics, Year 4",
+      avatar: "/avatars/emily.jpg",
+    },
+  ];
+
+  return (
+    <section className="mx-auto max-w-6xl px-4 py-10">
+      <h2 className="text-2xl font-semibold text-center">
+        What Our Members Say
+      </h2>
+      <div className="mt-8 grid gap-6 md:grid-cols-3">
+        {items.map((it, i) => (
+          <blockquote
+            key={i}
+            className="rounded-2xl border border-slate-100 bg-slate-50 p-6 text-slate-700 shadow-sm"
+          >
+            <p className="text-sm italic text-slate-600">“{it.quote}”</p>
+            <div className="mt-4 flex items-center gap-3">
+              <img
+                src={it.avatar}
+                alt={it.name}
+                className="h-10 w-10 rounded-full object-cover"
+              />
+              <div>
+                <div className="font-semibold text-slate-800">{it.name}</div>
+                <div className="text-xs text-slate-500">{it.role}</div>
+              </div>
+            </div>
+          </blockquote>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------- PARTNERS --------------------------- */
+function Partners() {
+  const logos = [
+    { src: "/volunteer_switchboard.png", alt: "Volunteer Switchboard" },
+    { src: "/siloamxperience.png", alt: "SiloamXperience" },
+    { src: "/itsraining.png", alt: "ItsRainingRaincoats" },
+    { src: "/caringforlife.png", alt: "Caring for Life" },
+    { src: "/actionforsingapore.png", alt: "Action for Singapore Dogs" },
+  ];
+
+  return (
+    <section className="mx-auto max-w-6xl px-4 py-10 bg-slate-50">
+      <h2 className="text-2xl font-semibold text-center">Our Partners</h2>
+      <div className="mt-8 flex items-center justify-between gap-6 overflow-x-auto px-4">
+        {logos.map((l, i) => (
+          <div key={i} className="flex shrink-0 items-center justify-center px-4">
+            <img src={l.src} alt={l.alt} className="h-16 object-contain" />
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
