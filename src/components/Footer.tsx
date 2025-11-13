@@ -13,13 +13,13 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center gap-6">
-          <a href="https://www.instagram.com/yourpage" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/dg.nus" target="_blank" rel="noopener noreferrer">
             <img src="/Instagram.svg" alt="Instagram" className="h-6 w-6 opacity-70 hover:opacity-100 transition" />
           </a>
-          <a href="https://www.linkedin.com/in/yourpage" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/company/nusdg" target="_blank" rel="noopener noreferrer">
             <img src="/Link.svg" alt="LinkedIn" className="h-6 w-6 opacity-70 hover:opacity-100 transition" />
           </a>
-          <a href="mailto:your@email.com">
+          <a href="mailto:partnerships.dgnus@gmail.com">
             <img src="/Email.svg" alt="Email" className="h-6 w-6 opacity-70 hover:opacity-100 transition" />
           </a>
         </div>
