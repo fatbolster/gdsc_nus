@@ -27,7 +27,7 @@ function Hero() {
     <section id="home" className="mx-auto max-w-6xl px-4 py-16 md:py-24">
       <div className="grid grid-cols-1 gap-12 md:grid-cols-2 items-center">
         <div>
-          <h1 className="text-5xl md:text-7xl lg:text-5xl font-bold tracking-[-0.04em] leading-[1.05]">
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-[-0.04em] leading-[1.05]">
             <span className="bg-[linear-gradient(90deg,#4285F4_0%,#34A853_35%,#FBBC05_70%,#EA4335_100%)] bg-clip-text text-transparent">
               Build. Learn. Connect
             </span>
@@ -37,12 +37,14 @@ function Hero() {
             and grow with a passionate community of developers.
           </p>
           <div className="mt-6">
-            <NavLink
-              to="https://t.me/dscnus"
+            <a
+              href="https://t.me/dscnus"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center rounded-full bg-blue-500 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-600"
             >
               Join Upcoming Events
-            </NavLink>
+            </a>
           </div>
         </div>
 
@@ -145,7 +147,7 @@ function About() {
           <h3 className="text-4xl text-slate-900 mb-3 tracking-tight">
             Developer Group @ NUS Computing
           </h3>
-          <div className="w-96 h-1.5 bg-slate-900 mb-6" />
+          <div className="w-full max-w-96 h-1.5 bg-slate-900 mb-6" />
           <p className="text-2xl text-slate-900 tracking-[0.15em]">
             #TECHFORGOOD
           </p>

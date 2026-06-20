@@ -43,7 +43,7 @@ export default function Hack4GoodPage() {
   ];
 
   return (
-    <div className="min-h-dvh bg-white text-slate-900 selection:bg-blue-500/20">
+    <div className="min-h-dvh overflow-x-hidden bg-white text-slate-900 selection:bg-blue-500/20">
       <SiteHeader />
       <main className="mx-auto max-w-7xl px-4 py-8 md:py-16">
         {/* Back Link */}

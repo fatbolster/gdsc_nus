@@ -1055,10 +1055,10 @@ export default function TeamPage() {
         </section>
 
         {/* Internal / External Toggle */}
-        <div className="mt-10 flex justify-center gap-10">
+        <div className="mt-10 flex flex-col sm:flex-row justify-center items-stretch gap-4 sm:gap-10">
           <button
             type="button"
-            className={`w-96 py-2.5 rounded-md border text-base font-semibold transition-all duration-200 ${
+            className={`w-full sm:w-96 py-2.5 rounded-md border text-base font-semibold transition-all duration-200 ${
               activeTeam === "internal"
                 ? "bg-[#6A8DFF] border-[#6A8DFF] text-white"
                 : "bg-white border-slate-300 text-slate-700 hover:bg-slate-100"
@@ -1070,7 +1070,7 @@ export default function TeamPage() {
 
           <button
             type="button"
-            className={`w-96 py-2.5 rounded-md border text-base font-semibold transition-all duration-200 ${
+            className={`w-full sm:w-96 py-2.5 rounded-md border text-base font-semibold transition-all duration-200 ${
               activeTeam === "external"
                 ? "bg-[#6A8DFF] border-[#6A8DFF] text-white"
                 : "bg-white border-slate-300 text-slate-700 hover:bg-slate-100"
